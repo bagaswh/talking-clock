@@ -71,7 +71,7 @@ new Vue({
     },
 
     speak() {
-      const clockRe = /(\d{1,2})[\:\.](\d{1,2})[\:\.]\d{1,2} ([AP]M)/;
+      const clockRe = /(\d{1,2})[\:\.](\d{1,2})[\:\.]\d{1,2} ([AP]M)?/;
       const match = this.currentTime.match(clockRe);
       const time = `${match[1]}:${match[2]} ${match[3]}`;
 
