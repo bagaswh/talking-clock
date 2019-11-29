@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Talking Clock</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+      integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./common/css/style.css" />
+  </head>
+  <body>
+    <div class="container-fluid" id="app">
+      <header class="header"></header>
+      <div class="clock p-5">
+        <h2 style="font-size: 3rem;" class="font-weight-bold text-center">
+          {{ currentTime }}
+        </h2>
+      </div>
+      <div class="speaker">
+        <div class="form-group row">
+          <div class="col-3 row align-items-center justify-content-end">
+            <label for="speak-freq">Speak every</label>
+          </div>
+          <div class="col-3">
+            <input
+              class="form-control form-check-inline"
+              type="number"
+              v-model="rawIntervalNumber"
+            />
+          </div>
+          <div class="col-3">
+            <select
+              class="form-control form-check-inline"
+              v-model="intervalTimeUnit"
+            >
+              <option value="seconds" selected>seconds</option>
+              <option value="minutes">minutes</option>
+              <option value="hours">hours</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="text-center">
+          Next speak time: {{ nextSpeakTime.toLocaleTimeString() }}
+        </div>
+
+        <div class="form-group">
+          <label for="voice-select">Select voice</label>
+          <select
+            class="form-control"
+            id="voice-select"
+            v-model="selectedVoice"
+          >
+            <option
+              v-for="voice in voices"
+              :value="voice.name"
+              :selected="voice.lang.match('id')"
+              >{{ voice.name }} ({{ voice.lang }})
+            </option>
+          </select>
+        </div>
+
+        <div class="buttons">
+          <button class="btn btn-primary" @click="speak">Speak</button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script src="./common/js/dist/speech.js"></script>
+  <script src="./common/js/dist/app.js"></script>
+</html>

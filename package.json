@@ -1,0 +1,25 @@
+{
+  "name": "talking-clock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./common/js -d ./common/js/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bagaswh/talking-clock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bagaswh/talking-clock/issues"
+  },
+  "homepage": "https://github.com/bagaswh/talking-clock#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4"
+  }
+}
