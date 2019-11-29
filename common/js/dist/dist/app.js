@@ -22,9 +22,9 @@ new Vue({
       return this.date.toLocaleTimeString();
     },
     speakInterval: function speakInterval() {
-      var _this = this;
+      var _this = this; // schedule speak on the next queue so this computed property has been cached
 
-      // schedule speak on the next queue so this computed property has been cached
+
       setTimeout(function () {
         _this.rescheduleSpeak();
       }, 10);
